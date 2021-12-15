@@ -15,20 +15,21 @@ switch ($age) {
         echo "5,000円チャージされました。" . "\n";
     default:
         echo "無効な番号です。" . "\n" . "処理を終了します。" . "\n";
-        break;
+        exit;
 }
 $shopping = $sic;
-if ($shopping > 0) {
-    do {
+    if (($shopping > 0) === true) {
+        do {
         echo "商品の価格を入力して下さい:";
         $money = trim(fgets(STDIN));
         if ($shopping >= $money) {
             $shopping = $shopping - $money;
             echo "残高は" . number_format($shopping) . "円です。" . "\n";
-        } else {
+        } 
+        if (($shopping < 0) === false) {
             echo "チャージ金額を上回るため購入できません。" . "\n";
             break;
         }
-    } while ($shopping > 0);
-};
+    } while ($shopping < 0);
+    }
 echo "買い物を終了します" . "\n";
