@@ -13,6 +13,7 @@ switch ($age) {
     case '3':
         $sic = 5000;
         echo "5,000円チャージされました。" . "\n";
+        break;
     default:
         echo "無効な番号です。" . "\n" . "処理を終了します。" . "\n";
         exit;
