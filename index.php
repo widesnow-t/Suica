@@ -17,19 +17,16 @@ switch ($age) {
         echo "無効な番号です。" . "\n" . "処理を終了します。" . "\n";
         exit;
 }
-$shopping = $sic;
-if (($shopping > 0) === true) {
-    do {
+$shopping = true;
+        do {
         echo "商品の価格を入力して下さい:";
         $money = trim(fgets(STDIN));
-        if ($shopping >= $money) {
-            $shopping = $shopping - $money;
-            echo "残高は" . number_format($shopping) . "円です。" . "\n";
-        }
-        if (($shopping < 0) === false) {
+        if ($sic >= $money) {
+            $sic -= $money;
+            echo "残高は" . number_format($sic) . "円です。" . "\n";
+        } else { $shopping = false;
             echo "チャージ金額を上回るため購入できません。" . "\n";
-            break;
         }
-    } while ($shopping < 0);
-}
+    } while ($shopping);
+
 echo "買い物を終了します" . "\n";
