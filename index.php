@@ -18,15 +18,16 @@ switch ($age) {
         exit;
 }
 $shopping = true;
-        do {
-        echo "商品の価格を入力して下さい:";
-        $money = trim(fgets(STDIN));
-        if ($sic >= $money) {
-            $sic -= $money;
-            echo "残高は" . number_format($sic) . "円です。" . "\n";
-        } else { $shopping = false;
-            echo "チャージ金額を上回るため購入できません。" . "\n";
-        }
-    } while ($shopping);
+do {
+    echo "商品の価格を入力して下さい:";
+    $money = trim(fgets(STDIN));
+    if ($sic >= $money) {
+        $sic -= $money;
+        echo "残高は" . number_format($sic) . "円です。" . "\n";
+    } else {
+        $shopping = false;
+        echo "チャージ金額を上回るため購入できません。" . "\n";
+    }
+} while ($shopping);
 
 echo "買い物を終了します" . "\n";
